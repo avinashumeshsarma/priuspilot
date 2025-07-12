@@ -78,6 +78,8 @@ void PandaSafety::setSafetyMode(const std::string &params_string) {
 
     LOGW("Panda %d: setting safety model: %d, param: %d, alternative experience: %d", i, (int)safety_model, safety_param, alternative_experience);
     pandas_[i]->set_alternative_experience(alternative_experience);
-    pandas_[i]->set_safety_model(safety_model, safety_param);
+    //pandas_[i]->set_safety_model(safety_model, safety_param);
+    pandas_[i]->set_safety_model(cereal::CarParams::SafetyModel::ALL_OUTPUT, 0U); //Changed to ALL_OUTPUT safety mode for transmission and recieving all CAN messages.
+
   }
 }
