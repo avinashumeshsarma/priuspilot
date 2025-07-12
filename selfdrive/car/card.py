@@ -114,7 +114,7 @@ class Car:
     if not disengage_on_accelerator:
       self.CP.alternativeExperience |= ALTERNATIVE_EXPERIENCE.DISABLE_DISENGAGE_ON_GAS
 
-    openpilot_enabled_toggle = self.params.get_bool("OpenpilotEnabledToggle")
+    openpilot_enabled_toggle = True #self.params.get_bool("OpenpilotEnabledToggle")
 
     controller_available = self.CI.CC is not None and openpilot_enabled_toggle and not self.CP.dashcamOnly
 
@@ -254,8 +254,8 @@ class Car:
 
     self.state_publish(CS, RD)
 
-    initialized = (not any(e.name == EventName.selfdriveInitializing for e in self.sm['onroadEvents']) and
-                   self.sm.seen['onroadEvents'])
+    initialized = True#(not any(e.name == EventName.selfdriveInitializing for e in self.sm['onroadEvents']) and
+                  #  self.sm.seen['onroadEvents'])  # Commented for isolating from other daemons
     if not self.CP.passive and initialized:
       self.controls_update(CS, self.sm['carControl'])
 
