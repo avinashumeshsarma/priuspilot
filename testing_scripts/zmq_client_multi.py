@@ -4,7 +4,8 @@ import time
 
 # Load Cap'n Proto schema
 capnp.remove_import_hook()
-log = capnp.load('/home/avinashumeshsarma/openpilot/cereal/log.capnp')
+# log = capnp.load('/home/avinashumeshsarma/openpilot/cereal/log.capnp')
+log = capnp.load('/home/carpc/Software/saurabh/priuspilot/cereal/log.capnp')
 
 services = ["carState", "carControl", "pandaStates"]
 
